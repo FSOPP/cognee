@@ -9,14 +9,15 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./cognee:/app/cognee
-      - .env:/app/.env
+      - .env:/app/.env:ro
       # Uncomment to allow ingestion of local files from host:
       # - /path/to/your/data:/data
     environment:
       - DEBUG=false # Change to true if debugging
       - HOST=0.0.0.0
-      - ENVIRONMENT=local
+      - ENVIRONMENT=dev
       - LOG_LEVEL=INFO
+      - COGNEE_SKIP_CONNECTION_TEST=true
       # CAUTION: Default '*' allows all origins. Override with specific domains in production.
       - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-*}
     extra_hosts:
@@ -136,7 +137,7 @@ services:
 
   postgres:
     image: pgvector/pgvector:pg17
-    container_name: postgres
+    container_name: cognee-postgres
     restart: always
     profiles:
       - postgres

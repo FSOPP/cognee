@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-04-25T14:28:15.711Z",
+  "projectRoot": "/home/tuanna47/workspace/FSO/cognee",
+  "structure": {
+    "hasPackageJson": false,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1777127295711
+}
